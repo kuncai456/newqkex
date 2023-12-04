@@ -23,7 +23,7 @@ class CG_Client(WebSocketClient):
 if __name__ == '__main__':
     ws = None
     try:
-        ws = CG_Client('wss://ws-socket.qkex.com/v1/market')
+        ws = CG_Client('ws://ws-socket.qkex.com/v1/market')
         ws.connect()
         ws.run_forever()
     except KeyboardInterrupt:

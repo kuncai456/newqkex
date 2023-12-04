@@ -24,7 +24,7 @@ class AutoOrder:
         :param price:
         :return:
         """
-        url="http://test-futures-rest.qkex.center/v1/trade/web/orders"
+        url="http://test-futures-rest.qkex.com/v1/trade/web/orders"
         data={"tradeType":"linearPerpetual",
               "symbol":"BTCUSDT",
               "side":"buy",
@@ -46,7 +46,7 @@ class AutoOrder:
         :param price:
         :return:
         """
-        url="http://test-futures-rest.qkex.center/v1/trade/web/orders"
+        url="http://test-futures-rest.qkex.com/v1/trade/web/orders"
         data={"tradeType":"linearPerpetual",
               "symbol":"BTCUSDT",
               "side":"sell",
@@ -66,7 +66,7 @@ class AutoOrder:
         获取价格
         :return:
         """
-        url="http://test-futures-rest.qkex.center/v1/market/ticker/24hr?symbol=BTCUSDT&tradeType=linearPerpetual"
+        url="http://test-futures-rest.qkex.com/v1/market/ticker/24hr?symbol=BTCUSDT&tradeType=linearPerpetual"
         res=requests.request(method="get",url=url)
         return res.json()
 
@@ -76,7 +76,7 @@ class AutoOrder:
         获取委托列表
         :return:
         """
-        url="http://test-futures-rest.qkex.center/v1/trade/web/openOrders?tradeType=linearPerpetual&pageNum=1&pageSize=100"
+        url="http://test-futures-rest.qkex.com/v1/trade/web/openOrders?tradeType=linearPerpetual&pageNum=1&pageSize=100"
         res=requests.request(method="get",url=url,headers=self.headers)
         print("委托列表",res.json())
         return res.json()
@@ -85,7 +85,7 @@ class AutoOrder:
         一键撤单
         :return:
         """
-        url = "http://test-futures-rest.qkex.center/v1/trade/web/orders/oneClickCancel"
+        url = "http://test-futures-rest.qkex.com/v1/trade/web/orders/oneClickCancel"
         data = {"tradeType":"linearPerpetual"}
         response = requests.request(method="post", url=url, json=data, headers=self.headers, verify=False)
         print("一键撤单成功")
@@ -93,7 +93,7 @@ class AutoOrder:
 
     def do_oneClickClose(self):
         """一键平仓"""
-        url="http://test-futures-rest.qkex.center/v1/trade/web/oneClickClose"
+        url="http://test-futures-rest.qkex.info/v1/trade/web/oneClickClose"
         data={"tradeType":"linearPerpetual"}
         response=requests.request(method="post", url=url, json=data, headers=self.headers, verify=False)
         print("一键平仓成功")
@@ -102,7 +102,7 @@ class AutoOrder:
 class Login:
 
     def login(self, user, password):
-        url = "http://test-public-rest.qkex.center/user/login"
+        url = "http://test-public-rest.qkex.com/user/login"
         headers = {"Content-Type": "application/json"}
         data = {"account": user, "password": password,
                 "verifyCode": "111111"}
@@ -115,7 +115,7 @@ class AutoProcess:
     def process(self):
         while True:
             try:
-                user=AutoOrder(user="697Ma@163.com",password="qa123456")
+                user=AutoOrder(user="800956Ma@163.com",password="qa123456")
                 n=0
                 while True:
                     if n%10!=0:
@@ -147,5 +147,5 @@ class AutoProcess:
             except Exception as e:
                 print("错误:",e)
 if __name__ == '__main__':
-    # print(AutoOrder(user="697Ma@163.center",password="qa123456").get_price())
+    # print(AutoOrder(user="697Ma@163.com",password="qa123456").get_price())
     AutoProcess().process()

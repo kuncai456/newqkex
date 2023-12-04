@@ -24,7 +24,7 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9
            "language":"Chinese"}
 Authorization='eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5MmU0Y2Y4ZC1hODdmLTQ4MTgtODJmMS0xNDgxYjYwOTRhMTAxMTEyODg0ODYzIiwidWlkIjoic1F6S2RTODJUN0dDeEluck1XSDBpUT09IiwiYmlkIjoibVdPTzdGMnpzTjBUd1JBeVFEbGsrQT09IiwiaXAiOiI4NFJ2dzRsWUo3SUZUamdLTDFZbjJ3PT0iLCJkZXYiOiJBOG9MTmVSVnZGR294TDlQWmVoa3BBPT0iLCJzdHMiOjAsImlhdCI6MTY3ODE4MDg3NywiZXhwIjoxNjc4MjY3Mjc3LCJpc3MiOiJ3Y3MifQ.mZjUU6EYebXG-NijCZ80bMKeCE_1f24sMnR89tIgEUo'
 headers['X-Authorization']=Authorization
-url = 'https://test-public-rest.qkex.com'
+url = 'http://test-public-rest.qkex.com'
 account='12345678@qq.com'
 password='qa123456'
 verifyCode='111111'
@@ -49,7 +49,7 @@ def login(account=account,password=password,verifyCode=verifyCode):
                "Accept-Language": "zh-CN",
                "X-Authorization": cookie,
                "language": "Chinese"}
-    url = "https://test-public-rest.qkex.com/wallet/currencies"
+    url = "http://test-public-rest.qkex.com/wallet/currencies"
     res=requests.request(method="get",url=url,headers=headers)
     if res.json()["code"]==0:
         return cookie
@@ -67,7 +67,7 @@ def login(account=account,password=password,verifyCode=verifyCode):
                    "Connection": "close",
                    "Accept-Language": "zh-CN",
                    "language": "zh-CN"}
-        url = 'https://test-public-rest.qkex.com'
+        url = 'http://test-public-rest.qkex.com'
         path='/user/login'
         # print("url",url+path)
         # print("params",params)
@@ -121,6 +121,7 @@ def email(email):
 
 
 if __name__ == '__main__':
-    res_data=login(account="12345678@qq.com",password="qa123456",verifyCode="111111")
+    list=[]
+    res_data=login(account="811@qq.com",password="GNNMsg8Fes/wHmhdD3nEUqospT1fwxQys/9sqrQYcApm9Ne6T0kZZGkjSwXHiDXOhgwCzxoFFLW0+tehvigjj1X563nYN5QVvG8xOvo+zFvAx+HzSCB3ZLByMKgi0tSSfYXrAGZry+j/VEdOFTYJXmS1LlDhv5vXRGrWuli0B/S8/3xUBUhxgJaXA+9LNOkFPOFK6X6G6Bbrxw+AxJLkjCfT2IX8IOpEbGgTSS1xZZoftzkFRblOxiXHoFib3gNfO5qdGQea3kqSLIkBk8sSweu6s9zgFuoaL950kx8gPfcgxoeHwDqfrNBGaYe4MSG9A9We/ppzdh+3d4gTxqpfGA==",verifyCode="111111")
     print(res_data)
     # print(jsonpath.jsonpath(res_data, "$.data.accessToken")[0])

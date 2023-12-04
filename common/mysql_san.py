@@ -5,8 +5,10 @@ import pymysql,time
 import logging
 from common import slacksend
 host='192.168.200.150';user='test_user';password='test-user@123456';port=3306
+dev_host='192.168.200.101';dev_user='dev-user';dev_password='dev-user@123456';port=3306
 host1='172.31.24.122';user1='root';password1='12@3456';port1=4000
 uat_host='172.31.28.33';uat_user='dev_user';uat_password='dev_user#dev_us111er'
+
 # user='admin'
 # password='6Gp0iz1ZHNceJKwSpNg6'
 # database='otc'
@@ -17,7 +19,9 @@ def mysql_select(sql,ac):#根据主库,返回内容,查询表,查询条件进行
     if ac==0:
         db = pymysql.connect(host=host1, user=user1, password=password1,port=port1, database="")# 打开数据库连接
     elif ac==1:
-        db = pymysql.connect(host=uat_host, user=uat_user, password=uat_password, port=port1, database="")  # 打开数据库连接
+        db = pymysql.connect(host=uat_host, user=uat_user, password=uat_password, port=port1, database="")
+    elif ac==2:
+        db = pymysql.connect(host=dev_host, user=dev_user, password=dev_password, port=port, database="")  # 打开数据库连接
     else:
         db = pymysql.connect(host=host, user=user, password=password, database="")  # 打开数据库连接
     cursor = db.cursor()# 使用cursor()方法获取操作游标
@@ -116,7 +120,7 @@ def add_wallet_account(uid,currency,balance):#给钱包价钱，加到钱包账�
     install_transfer_record = f"insert into wallet.transfer_record (symbol, user_id, broker_id, to_address, amount,btc_amount, fee, confirmation, biz, trader_no, transfer_type, transaction_type,status, create_on, update_on) values ('USDT',  {uid}, 10000, unix_timestamp()+600, {balance}, 0, 0.00000000, 0, 9,unix_timestamp(), 13, 0, 2, now(), now());"
     install_bill_statements= f"insert into wallet.bill_statements (user_id, statements_no, symbol, amount, after_amount,trans_type, create_time)values ( {uid}, unix_timestamp(), 'USDT', {balance}, 0, 13, now());"
 
-    abc=mysql_select(sql_select,ac=3)
+    abc=mysql_select(sql_select,ac=2)
     print(abc)
     if len(abc)==0:#判断钱包是否有数据
         a=mysql_execute(install_select)
@@ -151,7 +155,7 @@ if __name__ == '__main__':
     # print(mysql_reconciliation(ac=1,uid='169321'))
     # #print(sql_send("SELECT email FROM user_center.user_info WHERE id in (10122688)",ac=1))#查询账号邮箱
     # print(add_account(uid='10122628',currency="USDT",balance='10000'))#给钱包价钱，加到钱包账户
-    print(add_wallet_account(uid='10122637',currency="USDT",balance='1000000'))#给钱包价钱，加到钱包账户
+    print(add_wallet_account(uid='10135683',currency="USDT",balance='1000000'))#给钱包价钱，加到钱包账户
     # for i in  range(2000):
     #     print(t_account_action())
     #     time.sleep(2 * 65)
@@ -161,3 +165,4 @@ if __name__ == '__main__':
     # data=mysql_select(sql,3)
     # print(data[0][4])
     # data
+    mysql_execute()
