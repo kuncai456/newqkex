@@ -48,16 +48,15 @@ class KYCCommit:
 
 if __name__ == '__main__':
     for i in [
-        "b1011Ma@163.com",
-        "b1012Ma@163.com",
-        "b1013Ma@163.com",
-        "b1014Ma@163.com",
-        "b1015Ma@163.com",
-        "b1016Ma@163.com",
-        "b1017Ma@163.com",
-        "b1018Ma@163.com",
-        "b1019Ma@163.com",
-        "b10110Ma@163.com",
+        "dd1071@163.com ",
+        "dd1072@163.com ",
+        "dd1073@163.com ",
+        "dd1074@163.com ",
+        "dd1075@163.com ",
+        "dd1076@163.com ",
+        "dd1077@163.com ",
+        "dd1078@163.com ",
+        "dd1079@163.com "
     ]:
 
         user=KYCCommit(user=i,password="qa123456")

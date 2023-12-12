@@ -188,20 +188,19 @@ class BossTransferToPerson:
 if __name__ == '__main__':
     # j = 10135826
     # for i in [
-    #     10194596,
-    #     10194606,
-    #     10194597,
-    #     10194598,
-    #     10194599,
-    #     10194600,
-    #     10194601,
-    #     10194602,
-    #     10194603,
-    #     10194604,
-    #     10194605
+    #     10194701,
+    #     10194702,
+    #     10194703,
+    #     10194704,
+    #     10194705,
+    #     10194706,
+    #     10194707,
+    #     10194708,
+    #     10194709,
+    #     10194710
     # ]:
-    #     BossTransferToPerson().process(symbol="QQT",amount="1000",user=i)
+    #     BossTransferToPerson().process(symbol="USDT",amount="1000",user=i)
     #     print(i,"--","充币完成")
 
 
-    BossTransferToPerson().process(symbol="QQT", amount="400000", user="10194606")
+    BossTransferToPerson().process(symbol="USDT", amount="10000", user="10133163")

@@ -16,7 +16,7 @@ urllib3.disable_warnings()
 class Login:
 
     def login(self, user, password):
-        url = "http://test-public-rest.qkex.center/user/login"
+        url = "http://test-public-rest.abcdefg123.website/user/login"
         headers = {"Content-Type": "application/json"}
         data = {"account": user, "password": password,
                 "verifyCode": "111111"}
@@ -38,7 +38,7 @@ class KYCCommit:
     def commit_kyc_upload(self,type):
         import requests
 
-        url = "http://test-public-rest.qkex.website/user/kyc/upload/v2"
+        url = "http://test-public-rest.abcdefg123.info/user/kyc/upload/v2"
         #type 1:正面照，2：背面照，4:手持证件照
         payload = {'type': type}
         files = [
@@ -48,8 +48,8 @@ class KYCCommit:
         headers = {
             'Connection': 'keep-alive',
             # 'Cookie': 'locale=en-US; _ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701508338.12.1.1701508349.49.0.0',
-            'Origin': 'http://test.qkex.website',
-            'Referer': 'http://test.qkex.website/',
+            'Origin': 'http://test.abcdefg123.info',
+            'Referer': 'http://test.abcdefg123.info/',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'accept': 'application/json, */*',
             'accept-language': 'zh-HK,zh;q=0.9,en-US;q=0.8,en;q=0.7',
@@ -84,7 +84,7 @@ class KYCCommit:
         print("handsImg",handsImg)
 
 
-        url = "http://test-public-rest.qkex.website/user/kyc/info/save"
+        url = "http://test-public-rest.abcdefg123.info/user/kyc/info/save"
         num = random.randint(1000000000, 9999999999)
         num1 = random.randint(1000, 9999)
         payload = json.dumps({
@@ -105,8 +105,8 @@ class KYCCommit:
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'locale=en-US; _ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701508338.12.1.1701508349.49.0.0',
-            'Origin': 'http://test.qkex.website',
-            'Referer': 'http://test.qkex.website/',
+            'Origin': 'http://test.abcdefg123.info',
+            'Referer': 'http://test.abcdefg123.info/',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'X-Authorization': self.Authorization,
             'X-Lang': 'zh-HK',
@@ -117,7 +117,7 @@ class KYCCommit:
 
         print(response.text)
     def get_uid(self):
-        url = "http://test-public-rest.qkex.center/user/detail"
+        url = "http://test-public-rest.abcdefg123.info/user/detail"
         headers = {
             'Content-Type': 'application/json',
             'X-Authorization':self.Authorization
@@ -170,5 +170,18 @@ class KYCCommitProcess:
 if __name__ == '__main__':
     # user=KYCCommit(user="d1011Ma@163.com",password="qa123456")
     # user.user_kyc_commit()
-    user=KYCCommitProcess(user="dd10612@163.com",password="qa123456")
+    user=KYCCommitProcess(user="dd109@163.com",password="qa123456")
     user.process()
+    # for i in [
+    #     "dd1071@163.com ",
+    #     "dd1072@163.com ",
+    #     "dd1073@163.com ",
+    #     "dd1074@163.com ",
+    #     "dd1075@163.com ",
+    #     "dd1076@163.com ",
+    #     "dd1077@163.com ",
+    #     "dd1078@163.com ",
+    #     "dd1079@163.com ",
+    # ]:
+    #     user = KYCCommitProcess(user=i, password="qa123456")
+    #     user.process()

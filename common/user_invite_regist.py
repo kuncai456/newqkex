@@ -8,7 +8,7 @@ from case.user_center.kyc_commit import Login
 def user_invite_regist(email,uid):
     import requests
 
-    url = "http://test-invite.qkex.website/api/user/sendCode"
+    url = "http://test-invite.abcdefg123.info/api/user/sendCode"
 
     payload = {"email":email}
     headers = {
@@ -26,7 +26,7 @@ def user_invite_regist(email,uid):
 
     print(response.text)
 
-    url = "http://test-invite.qkex.website/api/user/register"
+    url = "http://test-invite.abcdefg123.info/api/user/register"
     invitation_code=str(uid)+str("1")
     print("invitation_code",invitation_code)
     payload = {"email":email,
@@ -50,7 +50,7 @@ def user_invite_regist(email,uid):
     # print("Authorization",Authorization)
     # 生成邀请关系
 
-    url = "http://test-invite.qkex.website/api/scenarios/list"
+    url = "http://test-invite.abcdefg123.info/api/scenarios/list"
 
     payload = {}
     headers = {
@@ -59,8 +59,8 @@ def user_invite_regist(email,uid):
         'Connection': 'keep-alive',
         'Content-Type': 'application/json',
         'Cookie': '_ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701607829.16.1.1701607844.45.0.0',
-        'Origin': 'http://test.qkex.website',
-        'Referer': 'http://test.qkex.website/',
+        'Origin': 'http://test.abcdefg123.info',
+        'Referer': 'http://test.abcdefg123.info/',
         'Source': 'web',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         'X-Authorization': Authorization,
@@ -84,12 +84,15 @@ def user_invite_regist(email,uid):
     # print(response.json())
     uid=response.json()['data']["userId"]
     print(email," ",uid)
+    return uid
 
 if __name__ == '__main__':
     # user_invite_regist("90043Ma@163.com",uid=)
     for i in range(1,10):
-        email=str("dd10511")+str(i)+str("@163.com")
+        email=str("dd107")+str(i)+str("@163.com")
         print(email)
-        user_invite_regist(email,10194641)
+        uid=user_invite_regist(email,10194701)
+        with open("./userinviteregist.text","a",encoding="utf-8") as f:
+            f.write(email+" "+str(uid) +str(10194701)+"\n")
     # user_invite_regist("900431Ma@163.com",10194414)
 

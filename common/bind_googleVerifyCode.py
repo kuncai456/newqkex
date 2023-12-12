@@ -17,7 +17,7 @@ urllib3.disable_warnings()
 class Login:
 
     def login(self, user, password):
-        url = "http://test-public-rest.qkex.center/user/login"
+        url = "http://test-public-rest.abcdefg123.info/user/login"
         headers = {"Content-Type": "application/json"}
         data = {"account": user, "password": password,
                 "verifyCode": "111111"}
@@ -39,7 +39,7 @@ class BindGoogleVerifyCode:
 
     def bind(self):
 
-        url = "http://test-public-rest.qkex.website/user/google/bind"
+        url = "http://test-public-rest.abcdefg123.info/user/google/bind"
 
         payload = {}
         headers = {
@@ -48,8 +48,8 @@ class BindGoogleVerifyCode:
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'locale=en-US; _ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701607829.16.1.1701609363.59.0.0',
-            'Origin': 'http://test.qkex.website',
-            'Referer': 'http://test.qkex.website/',
+            'Origin': 'http://test.abcdefg123.info',
+            'Referer': 'http://test.abcdefg123.info/',
             'Source': 'web',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'X-Authorization': self.Authorization,
@@ -65,7 +65,7 @@ class BindGoogleVerifyCode:
         import requests
         import json
 
-        url = "http://test-public-rest.qkex.website/user/user-send-code"
+        url = "http://test-public-rest.abcdefg123.info/user/user-send-code"
 
         payload = json.dumps({
             "type": "10"
@@ -76,8 +76,8 @@ class BindGoogleVerifyCode:
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'locale=en-US; _ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701607829.16.1.1701609363.59.0.0',
-            'Origin': 'http://test.qkex.website',
-            'Referer': 'http://test.qkex.website/',
+            'Origin': 'http://test.abcdefg123.info',
+            'Referer': 'http://test.abcdefg123.info/',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'X-Authorization': self.Authorization,
             'X-Lang': 'zh-HK',
@@ -105,7 +105,7 @@ class BindGoogleVerifyCode:
         self.bind_send_code()
 
 
-        url = f"http://test-public-rest.qkex.website/user/google/verify?verifyCode=111111&googleVerifyCode={googleVerifyCode}"
+        url = f"http://test-public-rest.abcdefg123.info/user/google/verify?verifyCode=111111&googleVerifyCode={googleVerifyCode}"
 
         payload = json.dumps({})
         headers = {
@@ -114,8 +114,8 @@ class BindGoogleVerifyCode:
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Cookie': 'locale=en-US; _ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701607829.16.1.1701610255.60.0.0',
-            'Origin': 'http://test.qkex.website',
-            'Referer': 'http://test.qkex.website/',
+            'Origin': 'http://test.abcdefg123.info',
+            'Referer': 'http://test.abcdefg123.info/',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'X-Authorization': self.Authorization,
             'X-Lang': 'zh-HK',
@@ -133,5 +133,5 @@ class BindGoogleVerifyCode:
 if __name__ == '__main__':
     # user=KYCCommit(user="d1011Ma@163.com",password="qa123456")
     # user.user_kyc_commit()
-    user=BindGoogleVerifyCode(user="dd1052@163.com",password="qa123456")
+    user=BindGoogleVerifyCode(user="dd1078@163.com",password="qa123456")
     user.bind_google_verify_code()

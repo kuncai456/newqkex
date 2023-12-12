@@ -8,7 +8,7 @@ from common.boss_transfer_to_person import BossTransferToPerson
 
 def user_regist(email):
 
-    email_url= "http://test-public-rest.qkex.center/user/send-code/email"
+    email_url= "http://test-public-rest.abcdefg123.info/user/send-code/email"
 
     payload1 = json.dumps({
         "type": 2,
@@ -22,7 +22,7 @@ def user_regist(email):
     response = requests.request("POST", email_url, headers=headers1, data=payload1)
     print(response.text)
 
-    url = "http://test-public-rest.qkex.center/user/reg/email"
+    url = "http://test-public-rest.abcdefg123.info/user/reg/email"
 
     payload = json.dumps({
       "email": email,
@@ -51,7 +51,7 @@ def get_regist_uid(email):
         else:
             accessToken=data['data']['accessToken']
             print(accessToken)
-            url="http://test-public-rest.qkex.center/user/detail"
+            url="http://test-public-rest.abcdefg123.info/user/detail"
             headers = {
                 'Content-Type': 'application/json',
                 'X-Authorization': accessToken
@@ -66,7 +66,7 @@ def get_regist_uid(email):
 
             #生成邀请关系
 
-            url = "http://test-invite.qkex.website/api/scenarios/list"
+            url = "http://test-invite.abcdefg123.info/api/scenarios/list"
 
             payload = {}
             headers = {
@@ -75,8 +75,8 @@ def get_regist_uid(email):
                 'Connection': 'keep-alive',
                 'Content-Type': 'application/json',
                 'Cookie': '_ga=GA1.1.1658184569.1701309730; _ga_BC2SP908YM=GS1.1.1701607829.16.1.1701607844.45.0.0',
-                'Origin': 'http://test.qkex.website',
-                'Referer': 'http://test.qkex.website/',
+                'Origin': 'http://test.abcdefg123.info',
+                'Referer': 'http://test.abcdefg123.info/',
                 'Source': 'web',
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
                 'X-Authorization': accessToken,
@@ -93,7 +93,7 @@ def get_regist_uid(email):
         print("错误",e)
 if __name__ == '__main__':
     # user_regist("80091Ma@163.com")
-    get_regist_uid("dd10612@163.com")
+    get_regist_uid("dd109@163.com")
     # email1="70001"
     # for i in range(10000):
     #     email=email1+str(i)+str("Ma@163.com")
