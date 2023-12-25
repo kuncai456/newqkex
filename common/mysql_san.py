@@ -155,7 +155,7 @@ if __name__ == '__main__':
     # print(mysql_reconciliation(ac=1,uid='169321'))
     # #print(sql_send("SELECT email FROM user_center.user_info WHERE id in (10122688)",ac=1))#查询账号邮箱
     # print(add_account(uid='10122628',currency="USDT",balance='10000'))#给钱包价钱，加到钱包账户
-    print(add_wallet_account(uid='10135683',currency="USDT",balance='1000000'))#给钱包价钱，加到钱包账户
+    # print(add_wallet_account(uid='10135683',currency="USDT",balance='1000000'))#给钱包价钱，加到钱包账户
     # for i in  range(2000):
     #     print(t_account_action())
     #     time.sleep(2 * 65)
@@ -165,4 +165,8 @@ if __name__ == '__main__':
     # data=mysql_select(sql,3)
     # print(data[0][4])
     # data
-    mysql_execute()
+    # mysql_execute()
+    sql1="select id from user_center.user_info where type=0 limit 10;"
+    datas=mysql_select(sql1,3)
+    for i in datas:
+        print(type(i[0]))

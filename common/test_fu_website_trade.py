@@ -63,7 +63,7 @@ def test_tradeleverage():
 
 #OpenApi杠杆，获取用户当前杠杆
 def test_tradeleverage_info():
-  path = '/v1/trade/leverage/info'
+  path = '/v1/trade/leverage/info?tradeType=linearPerpetual&symbol=btcusdt&marginType=cross'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = ''
@@ -87,21 +87,7 @@ def test_orderstes():
   path = '/v1/trade/orders'
   url = base_url + path
   now = str(int(time.time() * 1000))
-  data = json.dumps({
-  "tradeType": "linearPerpetual",
-  "symbol": "BTCUSDT",
-  "side": "sell",
-  "positionSide": "short",
-  "orderType": "market",
-  "reduceOnly": False,
-  "marginType": "cross",
-  "price": "28324",
-  "priceType": "optimalN",
-  "orderQty": "55",
-  "postOnly": False,
-  "timeInForce": "IOC",
-  "currency": ""
-})
+  data = json.dumps({"tradeType":"linearPerpetual","symbol":"BTCUSDT","side":"buy","positionSide":"long","orderType":"market","orderQty":"1","marginType":"cross"})
   signature = sign(now, 'POST', path, data)
   headers = {
     "ACCESS-SIGN": signature,
@@ -120,7 +106,7 @@ def test_orderstes():
 
 # OpenApi订单,批量下单
 def test_batchOrders():
-  path = '/v1/trade/batchOrders/'
+  path = '/v1/trade/batchOrders'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -144,7 +130,7 @@ def test_batchOrders():
 
 # OpenApi订单, 单个撤单
 def test_orders_cancel():
-  path = '/v1/trade/orders/cancel/'
+  path = '/v1/trade/orders/cancel'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -172,7 +158,7 @@ def test_orders_cancel():
 
 # OpenApi订单,批量撤单
 def test_orders_batchCancelOrders():
-  path = '/v1/trade/orders/batchCancelOrders/'
+  path = '/v1/trade/orders/batchCancelOrders'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -196,7 +182,7 @@ def test_orders_batchCancelOrders():
 
 # OpenApi订单,一键撤单
 def test_orders_oneClickCancels():
-  path = '/v1/trade/orders/oneClickCancel/'
+  path = '/v1/trade/orders/oneClickCancel'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -241,7 +227,7 @@ def test_openOrders():
 
 # openApi持仓, 持仓查询接口
 def test_position():
-  path = '/v1/trade/position/'
+  path = '/v1/trade/position'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = ''
@@ -262,7 +248,7 @@ def test_position():
 
 # openApi持仓, 调整逐仓保证金
 def test_position_margin():
-  path = '/v1/trade/position/margin/'
+  path = '/v1/trade/position/margin'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -289,7 +275,7 @@ def test_position_margin():
 
 # openApi 查看风险限额,查看风险限额-与仓位挂单对应档位
 def test_riskLimit():
-  path = '/v1/trade/riskLimit/'
+  path = '/v1/trade/riskLimit'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = ''
@@ -311,7 +297,7 @@ def test_riskLimit():
 
 # openapi 划转,web发起划转
 def test_account_transfer():
-  path = '/v1/trade/account/transfer/'
+  path = '/v1/trade/account/transfer'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -338,7 +324,7 @@ def test_account_transfer():
 
 # openApi 计划委托,计划委托下单
 def test_stopOrders():
-  path = '/v1/trade/stopOrders/'
+  path = '/v1/trade/stopOrders'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -377,7 +363,7 @@ def test_stopOrders():
 
 # openApi 计划委托,计划委托撤单
 def test_stopOrders_cancel():
-  path = '/v1/trade/stopOrders/cancel/'
+  path = '/v1/trade/stopOrders/cancel'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = json.dumps({
@@ -403,7 +389,7 @@ def test_stopOrders_cancel():
 
 # openApi 计划委托,查询未触发计划委托
 def test_stopOrders_search():
-  path = '/v1/trade/stopOrders/search/'
+  path = '/v1/trade/stopOrders/search'
   url = base_url + path
   now = str(int(time.time() * 1000))
   data = ''

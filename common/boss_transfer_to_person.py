@@ -1,8 +1,11 @@
 import json
 import time
+import random
 
 import pyotp
 import requests
+
+from common.mysql_san import mysql_select
 
 
 class BossTransferToPerson:
@@ -201,6 +204,20 @@ if __name__ == '__main__':
     # ]:
     #     BossTransferToPerson().process(symbol="USDT",amount="1000",user=i)
     #     print(i,"--","充币完成")
+    # symbol_list=[]
+    # symbol_sql1="select symbol from wallet.wallet_currency_compress ;"
+    #
+    # datas1=mysql_select(symbol_sql1,3)
+    # for i in datas1:
+    #     symbol_list.append(str(i[0]))
+    #
+    # sql1="select id from user_center.user_info where type=0 or type=3;"
+    # datas=mysql_select(sql1,3)
+    # for i in datas:
+    #     user=str(i[0])
+    #     symbol=random.choice(symbol_list)
+    #     print("user",user,"----","symbol",symbol)
+    #     BossTransferToPerson().process(symbol=symbol, amount="1000", user=user)
 
 
-    BossTransferToPerson().process(symbol="USDT", amount="10000", user="10133163")
+    BossTransferToPerson().process(symbol="USDT", amount="1000000", user="10195960")

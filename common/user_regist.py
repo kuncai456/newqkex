@@ -93,9 +93,9 @@ def get_regist_uid(email):
         print("错误",e)
 if __name__ == '__main__':
     # user_regist("80091Ma@163.com")
-    get_regist_uid("dd109@163.com")
-    # email1="70001"
-    # for i in range(10000):
-    #     email=email1+str(i)+str("Ma@163.com")
-    #     print(email)
-    #     get_regist_uid(email)
+    # get_regist_uid("dd109@163.com")
+    email1="7000112"
+    for i in range(10000):
+        email=email1+str(i)+str("@163.com")
+        print(email)
+        get_regist_uid(email)
